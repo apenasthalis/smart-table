@@ -1,3 +1,3 @@
 interface test {
-    
+    id: number;
 }
