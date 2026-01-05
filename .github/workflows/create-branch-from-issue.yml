@@ -1,0 +1,27 @@
+name: Criar branch a partir da issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Criar branch com o número da issue
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          echo "Criando branch para a issue #$ISSUE_NUMBER"
+
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git checkout -b "$ISSUE_NUMBER"
+          git push origin "$ISSUE_NUMBER"
