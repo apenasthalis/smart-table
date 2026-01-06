@@ -3,4 +3,5 @@ interface test {
     name: string;
     active: boolean;
     description: string;
+    tags: string[];
 }
