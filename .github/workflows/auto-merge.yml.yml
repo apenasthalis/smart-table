@@ -5,8 +5,8 @@ on:
     types: [submitted]
 
 permissions:
-  pull-requests: write
   contents: write
+  pull-requests: write
 
 jobs:
   auto-merge:
@@ -14,16 +14,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Auto merge PR
+      - name: Merge automático
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_NUMBER=${{ github.event.pull_request.number }}
+          PR=${{ github.event.pull_request.number }}
           REPO=${{ github.repository }}
 
-          echo "Tentando mergear PR #$PR_NUMBER"
+          echo "Tentando mergear PR #$PR"
 
-          gh pr merge "$PR_NUMBER" \
+          gh pr merge "$PR" \
             --repo "$REPO" \
             --squash \
-            --auto
+            --auto \
+            --delete-branch
