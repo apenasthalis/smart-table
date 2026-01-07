@@ -33,7 +33,7 @@ export class ExportUtils {
 
       return { success: true, message: "CSV exportado com sucesso!" }
     } catch (error) {
-      console.error("[v0] Erro ao exportar CSV:", error)
+      console.error("Erro ao exportar CSV:", error)
       return { success: false, message: "Erro ao exportar CSV" }
     }
   }
@@ -67,7 +67,7 @@ export class ExportUtils {
 
       return { success: true, message: "Excel exportado com sucesso!" }
     } catch (error) {
-      console.error("[v0] Erro ao exportar Excel:", error)
+      console.error("Erro ao exportar Excel:", error)
       return { success: false, message: "Erro ao exportar Excel" }
     }
   }
@@ -114,7 +114,7 @@ export class ExportUtils {
 
       return { success: true, message: "PDF exportado com sucesso!" }
     } catch (error) {
-      console.error("[v0] Erro ao exportar PDF:", error)
+      console.error("Erro ao exportar PDF:", error)
       return { success: false, message: "Erro ao exportar PDF" }
     }
   }
